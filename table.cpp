@@ -23,10 +23,7 @@ Table::Table(const Table& ori){
 
 Table& Table::operator=(const Table& ori){
 	if (&ori == this) return *this;
-	for (int i = 0; i < v.size(); i++){
-		v[i].~vector();
-	}
-	// v.~vector();
+	v.~vector();
 	this->max_entries = ori.max_entries;
 	for (int i = 0; i < max_entries; i++){
 		std::vector<Entry> p;
@@ -42,9 +39,6 @@ Table& Table::operator=(const Table& ori){
 }
 
 Table::~Table(){
-	for (int i = 0; i < v.size(); i++){
-		v[i].~vector();
-	}
 	v.~vector();
 }
 
