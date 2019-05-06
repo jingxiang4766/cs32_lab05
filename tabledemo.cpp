@@ -15,7 +15,7 @@ unsigned int user_get(Table &t);
 unsigned int user_remove(Table &t);
 
 int main() {
-    
+
     cout << "Demonstrate very small table\n";
     Table t(5);
     t.put(7, "seven");
@@ -23,9 +23,11 @@ int main() {
     t.put(17, "Seventeen");
     t.put(4, "four");
     t.put(36, "Thirty-six");
-    cout << t;
+    Table tt;
+    tt = t;
+    cout << tt;
     cout << "key accesses: " << Entry::access_count() << endl;
-    
+
     cout << "\nNow demonstrate default size table\n";
     Table t2;
     Entry e;
@@ -43,7 +45,7 @@ int main() {
     while (user_remove(t2) != 0)
         ;
     cout << t2;
-    
+
     cout << "\nFinally demonstrate larger table\n";
     ifstream input;
     input.open("fips.txt");

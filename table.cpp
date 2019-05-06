@@ -5,6 +5,49 @@
 #include "table.h"
 #include "entry.h"
 
+//lab05
+Table::Table(const Table& ori){
+	max_entries = ori.max_entries;
+	for (int i = 0; i < max_entries; i++){
+		std::vector<Entry> p;
+		v.push_back(p);
+		for(int j = 0; j < ori.v[i].size(); j++){
+			Entry e;
+			v[i].push_back(e);
+		}
+	}
+	for (int i = 0; i < max_entries; i++){
+		for (int j = 0; j < ori.v[i].size(); j++){
+			v[i][j] = ori.v[i][j];
+		}
+	}
+}
+
+Table& Table::operator=(const Table& ori){
+	for (int i = 0; i < v.size(); i++){
+		v[i].~vector();
+	}
+	v.~vector();
+	Table* a = new Table(ori);
+	return *a;
+}
+
+Table::~Table(){
+	for (int i = 0; i < v.size(); i++){
+		v[i].~vector();
+	}
+	v.~vector();
+}
+
+
+
+
+
+
+
+
+
+//lab04
 Table::Table(unsigned int max_entries):max_entries(max_entries){
 	v[max_entries];
 	for (int i = 0; i < max_entries; i++){

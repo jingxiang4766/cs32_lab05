@@ -8,6 +8,12 @@
 // std::vector<Entry> as stated in the instructions
 class Table {
 public:
+	//lab05
+	Table(const Table& ori);
+	Table& operator=(const Table& ori);
+	~Table();
+
+	//lab04
 	Table(unsigned int max_entries = 100);
 	Table(unsigned int entries, std::istream& input);
 	void put(unsigned int key, std::string data);
