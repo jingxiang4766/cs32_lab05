@@ -39,7 +39,7 @@ Table& Table::operator=(const Table& ori){
 }
 
 Table::~Table(){
-		// v.~vector();
+// 
 }
 
 
